@@ -35,7 +35,5 @@ jobs:
 
       - name: Notificar a Ferozo para desplegar
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.Ferozo }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan ferozo.host >> ~/.ssh/known_hosts
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa -o UserKnownHostsFile=~/.ssh/known_hosts"
+          git push origin main
