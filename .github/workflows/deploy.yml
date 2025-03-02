@@ -1,0 +1,35 @@
+name: CI/CD for PHP Project
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+
+      - name: Instalar dependencias
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Ejecutar pruebas con PHPUnit
+        run: vendor/bin/phpunit
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Notificar a Ferozo para desplegar
+  	run: |
+         curl -X POST https://ferozo.host/deploy/git/54c45b4f8f281928b7efc0eb81a7926a

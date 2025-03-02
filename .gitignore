@@ -1,0 +1,23 @@
+# Ignorar dependencias de Composer
+vendor/
+composer.lock
+
+# Ignorar archivos del entorno
+.env
+.idea/
+.vscode/
+node_modules/
+
+# Ignorar logs y caché
+*.log
+cache/
+*.result.cache
+log.txt
+/.phpunit.cache
+
+# Ignorar archivos generados por Prettier
+.prettierignore
+.prettiercache
+
+# Ignorar reporte
+/coverage
