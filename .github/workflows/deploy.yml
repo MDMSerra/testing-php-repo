@@ -35,7 +35,7 @@ jobs:
 
       - name: Notificar a Ferozo para desplegar
         run: |
-          RESPONSE=$(curl -X POST https://ferozo.host/deploy/git/54c45b4f8f281928b7efc0eb81a7926a \
-                -H "Content-Type: application/json" \
-                -d '{"branch": "main"}')
-          echo "Respuesta del servidor: $RESPONSE"
+          mkdir -p ~/.ssh
+          echo "${{ secrets.Ferozo }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan ferozo.host >> ~/.ssh/known_hosts
