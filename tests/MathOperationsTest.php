@@ -14,7 +14,7 @@ final class MathOperationsTest extends TestCase
     public function testAddition(): void
     {
         $math = new MathOperations();
-        $this->assertEquals(5, $math->add(2, 3));
+        $this->assertEquals(67, $math->add(2, 3));
     }
 
     public function testSubtraction(): void

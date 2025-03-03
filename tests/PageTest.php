@@ -17,7 +17,7 @@ class PageTest extends TestCase
 
     public function testGetTitle(): void
     {
-        $this->assertSame("Bienvenido a Mi Página PHP", PageContent::getTitle());
+        $this->assertSame("Bienvenidos a Mi Página PHP", PageContent::getTitle());
     }
 
     public function testGetParagraph(): void
