@@ -30,10 +30,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: Clonar el repositorio
-        uses: actions/checkout@v3
-
       - name: Webhook
-        uses: distributhor/workflow-webhook
-        with:
-          url: "https://ferozo.host/deploy/git/9918d74b2f444c23920aac920aec5fe0"
+        run: |
+          curl -n "https://ferozo.host/deploy/git/9918d74b2f444c23920aac920aec5fe0" \
+          --header 'Content-Type: application/x-www-form-urlencoded'
