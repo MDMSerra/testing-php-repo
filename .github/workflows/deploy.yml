@@ -33,7 +33,7 @@ jobs:
       - name: Clonar el repositorio
         uses: actions/checkout@v3
 
-      - name: Notificar a Ferozo para desplegar
-        run: |
-          export GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa -o UserKnownHostsFile=~/.ssh/known_hosts"
-          git push origin main
+      - name: Webhook
+        uses: distributhor/workflow-webhook
+        with:
+          url: "https://ferozo.host/deploy/git/9918d74b2f444c23920aac920aec5fe0"
