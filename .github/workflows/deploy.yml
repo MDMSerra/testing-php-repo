@@ -30,12 +30,11 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: Webhook
-        run: |
-          curl -n "https://ferozo.host/deploy/git/9918d74b2f444c23920aac920aec5fe0" \
-          --header 'Content-Type: application/x-www-form-urlencoded'
-
-      # - name: Invoke deployment hook
-      #   uses: distributhor/workflow-webhook@v3
-      #   with:
-      #     webhook_url: ${{ secrets.WEBHOOK_URL }}
+      # - name: Webhook
+      #   run: |
+      #     curl -n ${{ secrets.WEBHOOK_URL }} \
+      #     --header 'Content-Type: application/x-www-form-urlencoded'
+      - name: Invoke deployment webhook
+        uses: distributhor/workflow-webhook@v3
+        with:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
