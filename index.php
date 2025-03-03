@@ -18,7 +18,8 @@ use App\PageContent;
     <title><?php echo PageContent::getTitle(); ?></title>
     <style>
         body {
-            background-color: #f4f4f4;
+            background-color: black;
+            color: wheat;
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;

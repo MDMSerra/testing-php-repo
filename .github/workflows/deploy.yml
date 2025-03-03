@@ -34,3 +34,8 @@ jobs:
         run: |
           curl -n "https://ferozo.host/deploy/git/9918d74b2f444c23920aac920aec5fe0" \
           --header 'Content-Type: application/x-www-form-urlencoded'
+
+      # - name: Invoke deployment hook
+      #   uses: distributhor/workflow-webhook@v3
+      #   with:
+      #     webhook_url: ${{ secrets.WEBHOOK_URL }}
